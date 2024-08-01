@@ -1,5 +1,6 @@
 "use client"
 import Image from "next/image";
+import Link from 'next/link'
 import { useState } from "react";
 
 export default function Home() {
@@ -71,8 +72,11 @@ export default function Home() {
   const [randomCard, setRandomCard] = useState(cards[getRandomIndex(cards)]);
   return (
     <main>
-      <div onClick={()=>setRandomCard(cards[getRandomIndex(cards)])} className="absolute  text-yellow-400 top-0 z-10 flex p-2 animate-bounce">
-          Cambiar
+      <div className="flex absolute top-0 z-10">
+        <div onClick={()=>setRandomCard(cards[getRandomIndex(cards)])} className="  text-yellow-400  p-2 animate-bounce">
+            Cambiar
+        </div>
+        <Link className="text-red-500  p-2 animate-bounce" href="/characters">Personajes</Link>
       </div>
       <div className="bg-black h-screen w-screen flex items-center justify-center overflow-hidden relative">
         <div className="bg-black w-[137%] absolute">
