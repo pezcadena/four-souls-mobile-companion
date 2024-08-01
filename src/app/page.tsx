@@ -1,113 +1,89 @@
 import Image from "next/image";
 
 export default function Home() {
+  const cards = [
+    'https://foursouls.com/wp-content/uploads/2022/01/r-all_hallows_eve.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-angelic_intervention.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-battle_royale.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-battle_royale_2.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-battle_royale_3.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-beggar.png',
+    'https://foursouls.com/wp-content/uploads/2021/10/r-black_champions.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-blessing_of_gluttony.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-blessing_of_greed.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-blessing_of_steam.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-blessing_of_the_inner_eye.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-blessing_of_the_sack.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-blind_rage.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-blood_donation.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-blood_lust.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-blood_money.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-bomb_bum.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-bum_bo_is_loose.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-butter_fingers.png',
+    'https://foursouls.com/wp-content/uploads/2021/10/r-challenge_room.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-conjoined_twin.png',
+    'https://foursouls.com/wp-content/uploads/2021/10/r-devil_beggar.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-dice_room_1.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-dice_room_2.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-dice_room_3.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-dice_room_4.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-dice_room_5.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-dice_room_6.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-edens_blessing.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-equality.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-eternal_chest.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-floor_spikes.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-fortune_teller.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-greed_looms.png',
+    'https://foursouls.com/wp-content/uploads/2021/10/r-gus.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-haunted.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-heavy_is_the_head.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-i_am_error.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-isaacs_blessing.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-key_master.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-laser_eye.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-maggys_blessing.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-might_for_the_meek.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-pity_for_the_poor.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-planetarium.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-red_champions.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-red_vise.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-restock_machine.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-samsons_blessing.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-shadow_of_famine.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-shadow_of_war.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-shell_game.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-slot_machine.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-social_goals.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-spider_webs.png',
+    'https://foursouls.com/wp-content/uploads/2021/10/r-splash_damage.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-spoils_of_war.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-static_shock.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-tax_for_the_mighty.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-the_mirror.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/r-white_champions.png',
+    'https://foursouls.com/wp-content/uploads/2022/01/rwz-the_isaac_of_isaac_re_isaac.png',
+    'https://foursouls.com/wp-content/uploads/2022/10/p-black_market.png'
+  ];
+  const randomCard = cards[getRandomIndex(cards)];
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main>
+      <div className="bg-black h-screen w-screen flex items-center justify-center">
+        <div className="bg-black w-[137%] absolute">
+          <Image
+            src={randomCard}
+            width={3000}
+            height={1000}
+            alt="Room Card"
+            className="w-full rotate-90 max-w-none"
+          />
         </div>
-      </div>
-
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
       </div>
     </main>
   );
+
+  function getRandomIndex<T>(array: T[]): number {
+      return Math.floor(Math.random() * array.length);
+  }
 }
