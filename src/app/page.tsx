@@ -71,6 +71,9 @@ export default function Home() {
   const [randomCard, setRandomCard] = useState(cards[getRandomIndex(cards)]);
   return (
     <main>
+      <div onClick={()=>setRandomCard(cards[getRandomIndex(cards)])} className="absolute  text-yellow-400 top-0 z-10 flex p-2 animate-bounce">
+          Cambiar
+      </div>
       <div className="bg-black h-screen w-screen flex items-center justify-center overflow-hidden relative">
         <div className="bg-black w-[137%] absolute">
           <Image
