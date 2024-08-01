@@ -1,4 +1,6 @@
+"use client"
 import Image from "next/image";
+import { useState } from "react";
 
 export default function Home() {
   const cards = [
@@ -66,10 +68,10 @@ export default function Home() {
     'https://foursouls.com/wp-content/uploads/2022/01/rwz-the_isaac_of_isaac_re_isaac.png',
     'https://foursouls.com/wp-content/uploads/2022/10/p-black_market.png'
   ];
-  const randomCard = cards[getRandomIndex(cards)];
+  const [randomCard, setRandomCard] = useState(cards[getRandomIndex(cards)]);
   return (
     <main>
-      <div className="bg-black h-screen w-screen flex items-center justify-center">
+      <div className="bg-black h-screen w-screen flex items-center justify-center overflow-hidden relative">
         <div className="bg-black w-[137%] absolute">
           <Image
             src={randomCard}
