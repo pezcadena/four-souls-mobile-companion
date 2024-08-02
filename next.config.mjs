@@ -5,6 +5,10 @@ const nextConfig = {
             {
                 protocol:'https',
                 hostname: 'foursouls.com'
+            },
+            {
+                protocol:'https',
+                hostname: 'media.tenor.com'
             }
         ]
     }

@@ -1,157 +1,119 @@
 "use client"
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { CharacterCardList } from "../cards/character-card-list";
 
 export default function Characters() {
-  const cards = [
-    [
-      'https://foursouls.com/wp-content/uploads/2022/01/g2-azazel.png',
-      'https://foursouls.com/wp-content/uploads/2022/01/g2-lord_of_the_pit.png'
-    ],
-    [
-      'https://foursouls.com/wp-content/uploads/2022/01/g2-the_lost.png',
-      'https://foursouls.com/wp-content/uploads/2022/01/g2-holy_mantle.png'
-    ],
-    [
-      'https://foursouls.com/wp-content/uploads/2022/01/g2-the_keeper.png',
-      'https://foursouls.com/wp-content/uploads/2022/01/g2-wooden_nickel.png'
-    ],
-    [
-      'https://foursouls.com/wp-content/uploads/2022/01/g2-apollyon.png',
-      'https://foursouls.com/wp-content/uploads/2022/01/g2-void.png'
-    ],
-    [
-      'https://foursouls.com/wp-content/uploads/2022/01/fsp2-bum_bo.png',
-      'https://foursouls.com/wp-content/uploads/2022/01/fsp2-bag_o_trash.png'
-    ],
-    [
-      'https://foursouls.com/wp-content/uploads/2022/01/fsp2-dark_judas.png',
-      'https://foursouls.com/wp-content/uploads/2022/01/fsp2-dark_arts.png'
-    ],
-    [
-      'https://foursouls.com/wp-content/uploads/2022/01/fsp2-guppy.png',
-      'https://foursouls.com/wp-content/uploads/2022/01/fsp2-infestation.png'
-    ],
-    [
-      'https://foursouls.com/wp-content/uploads/2022/01/fsp2-whore_of_babylon.png',
-      'https://foursouls.com/wp-content/uploads/2022/01/fsp2-gimpy.png'
-    ],
-    [
-      'https://foursouls.com/wp-content/uploads/2022/01/r-bethany.png',
-      'https://foursouls.com/wp-content/uploads/2022/01/r-book_of_virtues.png'
-    ],
-    [
-      'https://foursouls.com/wp-content/uploads/2022/01/r-jacob_and_esau.png',
-      'https://foursouls.com/wp-content/uploads/2022/01/r-sibling_rivalry.png'
-    ],
-    [
-      'https://foursouls.com/wp-content/uploads/2022/01/r-the_broken.png',
-      'https://foursouls.com/wp-content/uploads/2022/01/r-spindown_dice.png'
-    ],
-    [
-      'https://foursouls.com/wp-content/uploads/2022/01/r-the_dauntless.png',
-      'https://foursouls.com/wp-content/uploads/2022/01/r-hypercoagulation.png'
-    ],
-    [
-      'https://foursouls.com/wp-content/uploads/2022/01/r-the_hoarder.png',
-      'https://foursouls.com/wp-content/uploads/2022/01/r-bag_of_crafting.png'
-    ],
-    [
-      'https://foursouls.com/wp-content/uploads/2022/01/r-the_deceiver.png',
-      'https://foursouls.com/wp-content/uploads/2022/01/r-ceremonial_blade.png'
-    ],
-    [
-      'https://foursouls.com/wp-content/uploads/2022/01/r-the_soiled.png',
-      'https://foursouls.com/wp-content/uploads/2022/01/r-ibs.png'
-    ],
-    [
-      'https://foursouls.com/wp-content/uploads/2022/01/r-the_curdled.png',
-      'https://foursouls.com/wp-content/uploads/2022/01/r-sumptorium.png'
-    ],
-    [
-      'https://foursouls.com/wp-content/uploads/2022/01/r-the_savage.png',
-      'https://foursouls.com/wp-content/uploads/2022/01/r-berserk.png'
-    ],
-    [
-      'https://foursouls.com/wp-content/uploads/2022/01/r-the_benighted.png',
-      'https://foursouls.com/wp-content/uploads/2022/01/r-hemoptysis.png'
-    ],
-    [
-      'https://foursouls.com/wp-content/uploads/2022/01/r-the_capricious.png',
-      'https://foursouls.com/wp-content/uploads/2022/01/r-glitch.png'
-    ],
-    [
-      'https://foursouls.com/wp-content/uploads/2022/01/r-the_baleful.png',
-      'https://foursouls.com/wp-content/uploads/2022/01/r-soulbond.png'
-    ],
-    [
-      'https://foursouls.com/wp-content/uploads/2022/01/r-the_harlot.png',
-      'https://foursouls.com/wp-content/uploads/2022/01/r-gello.png'
-    ],
-    [
-      'https://foursouls.com/wp-content/uploads/2022/01/r-the_miser.png',
-      'https://foursouls.com/wp-content/uploads/2022/01/r-keepers_bargain.png'
-    ],
-    [
-      'https://foursouls.com/wp-content/uploads/2022/01/r-the_empty.png',
-      'https://foursouls.com/wp-content/uploads/2022/01/r-abyss.png'
-    ],
-    [
-      'https://foursouls.com/wp-content/uploads/2022/01/r-the_fettered.png',
-      'https://foursouls.com/wp-content/uploads/2022/01/r-dead_weight.png'
-    ],
-    [
-      'https://foursouls.com/wp-content/uploads/2022/01/r-the_zealot.png',
-      'https://foursouls.com/wp-content/uploads/2022/01/r-lemegeton.png'
-    ],
-    [
-      'https://foursouls.com/wp-content/uploads/2022/01/r-the_deserter.png',
-      'https://foursouls.com/wp-content/uploads/2022/01/r-anima_sola.png'
-    ],
-    [
-      'https://foursouls.com/wp-content/uploads/2022/01/r-flash_isaac.png',
-      'https://foursouls.com/wp-content/uploads/2022/01/r-classic_roller.png'
-    ]
-  ];
-  const [randomCard, setRandomCard] = useState(cards[getRandomIndex(cards)]);
+  const cards = CharacterCardList;
+  const [randomCard, setRandomCard] = useState(cards[0]);
+  const [loading, setLoading] = useState(true);
+  const [characterCharge, setCharacterCharge] = useState(false);
+  const [itemCharge, setItemCharge] = useState(false);
+  const [life, setLife] = useState([true,true,true,false,false, false]);
 
-  const [rotate, setRotate] = useState(false);
-  const [rotate2, setRotate2] = useState(false);
-
-  const handleClick = () => {
-    setRotate(!rotate);
+  useEffect(() => {
+    setRandomCard(cards[getRandomIndex(cards)]);
+  }, [cards]);
+  
+  const handleClickCharacter = () => {
+    setCharacterCharge(!characterCharge);
   };
 
-  const handleClick2 = () => {
-    setRotate2(!rotate2);
+  const handleClickItem = () => {
+    setItemCharge(!itemCharge);
   };
+
+  const changeCard = ()=>{
+    setLoading(true);
+    setRandomCard(cards[getRandomIndex(cards)]);
+  }
+
+  const handleClickLife=(index:number)=>{
+    let newLife = [...life];
+    newLife = newLife.map((value,newIndex)=>{
+      return newIndex<=index
+    });
+    setLife(newLife);
+  }
 
   return (
     <main>
       <div className="flex absolute top-0 z-10">
-        <div onClick={()=>setRandomCard(cards[getRandomIndex(cards)])} className="  text-yellow-400  p-2 animate-bounce">
+        <div onClick={changeCard} className="  text-yellow-400  p-2 animate-bounce">
             Cambiar
         </div>
         <Link className="text-red-500  p-2 animate-bounce" href="/">Cuartos</Link>
       </div>
       <div className="bg-black h-screen w-screen flex relative">
         <div className="pt-8 bg-black w-full">
+        {
+            loading
+              ? (
+                <div className="flex flex-col items-center">
+                  <Image
+                    src='https://media.tenor.com/WiTP5aZyPLUAAAAi/dice-roll-dice.gif'
+                    width={100}
+                    height={100}
+                    alt="Dice animation"
+                  />
+                  <div className="flex justify-center gap-4 items-center">
+                    <p className="animate-spin text-white">@</p>
+                    <p className="text-white text-center animate-pulse">Cargando</p>
+                    <p className="animate-spin text-white">@</p>
+                  </div>
+                </div>
+              )
+              : false
+          }
+          <div className="motion-safe:animate-bounce">
+            {
+              life.map((value,index)=>
+                <b 
+                  key={index} 
+                  className={
+                    index == 0
+                      ? 'text-purple-400 text-3xl m-2'
+                      :value 
+                        ? "text-red-500 text-3xl m-2"
+                        :"text-gray-400 text-3xl m-2"
+                  }
+                  onClick={()=>handleClickLife(index)}
+                >
+                  {index == 0 ?'X':'<3'}
+                </b>
+              )
+            }
+          </div>
           <Image
             src={randomCard[0]}
             width={3000}
             height={1000}
             alt="Room Card"
-            className={rotate ? 'w-full max-w-none rotate-90' : 'w-full max-w-none'}
-            onClick={handleClick}
+            className={
+              loading
+                ? 'opacity-0'
+                : characterCharge 
+                  ? 'w-full max-w-none rotate-90' 
+                  : 'w-full max-w-none'
+            }
+            onClick={handleClickCharacter}
+            onLoad={()=>setLoading(false)}
           />
           <Image
             src={randomCard[1]}
             width={3000}
             height={1000}
             alt="Room Card"
-            className={rotate2 ? 'w-full max-w-none rotate-90' : 'w-full max-w-none'}
-            onClick={handleClick2}
+            className={
+              loading
+                ? 'opacity-0'
+                : itemCharge 
+                  ? 'w-full max-w-none rotate-90' 
+                  : 'w-full max-w-none'
+            }
+            onClick={handleClickItem}
+            onLoad={()=>setLoading(false)}
           />
         </div>
       </div>
