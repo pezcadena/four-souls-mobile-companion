@@ -1,8 +1,8 @@
 "use client"
 import Image from "next/image";
-import Link from 'next/link'
 import { useEffect, useState } from "react";
 import { RoomCardList } from "./cards/room-card-list";
+import Navbar from "./components/navbar";
 
 export default function Home() {
   const cards = RoomCardList;
@@ -19,12 +19,12 @@ export default function Home() {
 
   return (
     <main>
-      <div className="flex absolute top-0 z-10">
-        <div onClick={changeCard} className="  text-yellow-400  p-2 animate-bounce">
-            Cambiar
-        </div>
-        <Link className="text-red-500  p-2 animate-bounce" href="/characters">Personajes</Link>
-      </div>
+      <Navbar
+        changeCard={changeCard}
+        page={
+          {title:'Personajes',route:'/characters'}
+        }
+      ></Navbar>
       <div className="bg-black h-screen w-screen flex items-center justify-center overflow-hidden relative">
         <div className="bg-black w-[137%] absolute">
           {

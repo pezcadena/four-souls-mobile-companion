@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { CharacterCardList } from "../cards/character-card-list";
+import Navbar from "../components/navbar";
 
 export default function Characters() {
   const cards = CharacterCardList;
@@ -39,12 +40,12 @@ export default function Characters() {
 
   return (
     <main>
-      <div className="flex absolute top-0 z-10">
-        <div onClick={changeCard} className="  text-yellow-400  p-2 animate-bounce">
-            Cambiar
-        </div>
-        <Link className="text-red-500  p-2 animate-bounce" href="/">Cuartos</Link>
-      </div>
+     <Navbar
+        changeCard={changeCard}
+        page={
+          {title:'Cuartos',route:'/'}
+        }
+      ></Navbar>
       <div className="bg-black h-screen w-screen flex relative">
         <div className="pt-8 bg-black w-full">
         {
