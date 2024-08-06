@@ -106,5 +106,9 @@ export const CharacterCardList = [
     [
       'https://foursouls.com/wp-content/uploads/2022/01/r-flash_isaac.png',
       'https://foursouls.com/wp-content/uploads/2022/01/r-classic_roller.png'
+    ],
+    [
+      '/tofu.jpg',
+      '/polloyon.jpg'
     ]
   ];
