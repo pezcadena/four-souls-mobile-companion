@@ -7,6 +7,7 @@ import Navbar from "../components/navbar";
 
 export default function Characters() {
   const cards = CharacterCardList;
+  const [availableImages, setAvailableImages] = useState([...cards]);
   const [randomCard, setRandomCard] = useState(cards[0]);
   const [loading, setLoading] = useState(true);
   const [characterCharge, setCharacterCharge] = useState(false);
@@ -14,8 +15,27 @@ export default function Characters() {
   const [life, setLife] = useState([true,true,true,false,false, false]);
 
   useEffect(() => {
-    setRandomCard(cards[getRandomIndex(cards)]);
-  }, [cards]);
+    getRandomCard();
+  },[]);
+
+  const getRandomCard = () => {
+    
+    if (availableImages.length === 0) {
+      setLoading(false);
+      return;
+    }
+
+    setLoading(true);
+
+    const randomIndex = getRandomIndex(availableImages);
+    const selectedImage = availableImages[randomIndex];
+
+    setRandomCard(selectedImage);
+
+    const newAvailableImages = availableImages.filter((_, index) => index !== randomIndex);
+    setAvailableImages(newAvailableImages);
+
+  }
   
   const handleClickCharacter = () => {
     setCharacterCharge(!characterCharge);
@@ -27,7 +47,7 @@ export default function Characters() {
 
   const changeCard = ()=>{
     setLoading(true);
-    setRandomCard(cards[getRandomIndex(cards)]);
+    getRandomCard();
   }
 
   const handleClickLife=(index:number)=>{
@@ -36,6 +56,11 @@ export default function Characters() {
       return newIndex<=index
     });
     setLife(newLife);
+  }
+
+  const reset = ()=>{
+    setAvailableImages(cards);
+    getRandomCard();
   }
 
   return (
@@ -66,7 +91,7 @@ export default function Characters() {
                 </div>
               )
               : false
-          }
+        }
           <div className="motion-safe:animate-bounce">
             {
               life.map((value,index)=>
@@ -86,6 +111,18 @@ export default function Characters() {
               )
             }
           </div>
+          {
+            availableImages.length == 0 
+              ? (
+                <div 
+                  className="p-4 bg-green-700 text-white"
+                  onClick={()=>reset()}
+                >
+                  Reiniciar
+                </div>
+              )
+              : false
+          }
           <Image
             src={randomCard[0]}
             width={3000}
