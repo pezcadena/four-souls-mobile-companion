@@ -36,6 +36,7 @@ export default function Home() {
                     width={100}
                     height={100}
                     alt="Dice animation"
+                    priority={true}
                   />
                   <div className="flex justify-center gap-4 items-center">
                     <p className="animate-spin text-white">@</p>
@@ -57,6 +58,7 @@ export default function Home() {
                 : 'w-full rotate-90 max-w-none'
             }
             onLoad={()=>setLoading(false)}
+            priority={true}
           />
         </div>
       </div>

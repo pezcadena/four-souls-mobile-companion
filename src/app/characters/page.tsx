@@ -100,6 +100,7 @@ export default function Characters() {
             }
             onClick={handleClickCharacter}
             onLoad={()=>setLoading(false)}
+            priority={true}
           />
           <Image
             src={randomCard[1]}
@@ -115,6 +116,7 @@ export default function Characters() {
             }
             onClick={handleClickItem}
             onLoad={()=>setLoading(false)}
+            priority={true}
           />
         </div>
       </div>
