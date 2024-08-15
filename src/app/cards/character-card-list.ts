@@ -198,5 +198,9 @@ export const CharacterCardList = [
     [
       'https://foursouls.com/wp-content/uploads/2022/01/rwz-yung_venuz.png',
       'https://foursouls.com/wp-content/uploads/2022/01/rwz-pop_pop.png'
+    ],
+    [
+      '/evans.jpg',
+      '/cardiomegalia.jpg'
     ]
   ];
